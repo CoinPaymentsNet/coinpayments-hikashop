@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="2.5" method="upgrade" group="hikashoppayment">
+	<name>CoinPayments Payment Plugin</name>
+	<version>2.0.0</version>
+	<author>CoinPayments</author>
+	<authorEmail>support@coinpayments.net</authorEmail>
+	<authorUrl>https://www.coinpayments.net</authorUrl>
+	<copyright>(C) 2014-2020 CoinPayments, LLC. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>This plugin enables you to setup your CoinPayments payment system</description>
+	<files>
+		<filename plugin="coinpayments">coinpayments.php</filename>
+		<filename>coinpayments_end.php</filename>
+		<filename>coinpayments_api.php</filename>
+	</files>
+	<media folder="media" destination="coinpayments">
+		<filename>coinpayments_admin.js</filename>
+	</media>
+	<params addpath="/components/com_hikashop/params">
+		<param name="pluginoptions" type="pluginoptions" default="plugin" label="hikashop"
+			   description="HikaShop options"/>
+	</params>
+	<config>
+		<fields name="params" addfieldpath="/components/com_hikashop/fields">
+			<fieldset name="basic">
+				<field id="pluginoptions" name="pluginoptions" type="pluginoptions" label="hikashop"
+					   description="HikaShop options"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
