@@ -16,7 +16,7 @@
 
 1. Go to Joomla's administration panel
 2. Go to HikaShop's administration panel via _Components_ -> _HikaShop_ -> _Configuration_
-3. Go to the menua _System_ -> _Payment methods_
+3. Go to the menu _System_ -> _Payment methods_
 4. Click the button _New_ and select _CoinPayments Payment Plugin_
 5. Configure the module
   1. Setup the payment method name
