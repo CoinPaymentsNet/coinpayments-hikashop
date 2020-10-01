@@ -2,7 +2,7 @@
 
 ## The module installation
 
-1. [Download hikashop_coinpayments.zip](https://github.com/CoinPaymentsNet/coinpayments-hikashop/releases/download/hikashop-coinpayments/hikashop_coinpayments.zip)
+1. [Download hikashop_coinpayments.zip](https://github.com/CoinPaymentsNet/coinpayments-hikashop/archive/cps_api_v2.zip)
 2. Go to Joomla's administration panel
 3. Go to _Manage_ page via the menu _Extensions_
 4. Install the module package
