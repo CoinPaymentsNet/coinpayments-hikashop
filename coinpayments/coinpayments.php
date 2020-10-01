@@ -170,7 +170,7 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 	public function getPaymentDefaultValues(&$element)
 	{
 		$element->payment_name = 'CoinPayments';
-		$element->payment_description = 'You can pay by Bitcoin or other cryptocurrencies via CoinPayments';
+		$element->payment_description = 'You can pay with Bitcoin or other cryptocurrencies via CoinPayments';
 		$element->payment_images = 'CoinPayments';
 		$element->payment_params->address_type = "shipping";
 		$element->payment_params->notification = 1;
