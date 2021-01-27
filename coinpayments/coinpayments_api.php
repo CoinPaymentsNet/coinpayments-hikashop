@@ -69,7 +69,7 @@ class CoinpaymentsApi
 			),
 		);
 
-		$params = $this->appendInvoiceMetadata($params);
+		$params = $this->appendInvoiceMetadata($params, 'notesToRecipient');
 		return $this->sendRequest('POST', $action, $client_id, $params);
 	}
 
@@ -97,7 +97,7 @@ class CoinpaymentsApi
 			),
 		);
 
-		$params = $this->appendInvoiceMetadata($params);
+		$params = $this->appendInvoiceMetadata($params, 'notes');
 		return $this->sendRequest('POST', $action, $client_id, $params, $client_secret);
 	}
 
@@ -169,7 +169,7 @@ class CoinpaymentsApi
 	 * @param $request_data
 	 * @return mixed
 	 */
-	protected function appendInvoiceMetadata($request_data)
+	protected function appendInvoiceMetadata($request_data, $notes_field_name)
 	{
 
 		$request_data['metadata'] = array(
@@ -177,7 +177,8 @@ class CoinpaymentsApi
 			"hostname" => HIKASHOP_LIVE,
 		);
 
-		return $request_data;
+        $request_data[$notes_field_name] = sprintf("%s / Store name: %s / Order # %s",HIKASHOP_LIVE,JFactory::getApplication()->get('sitename'),explode('|', $request_data['invoiceId'])[1]);
+        return $request_data;
 	}
 
 	/**
