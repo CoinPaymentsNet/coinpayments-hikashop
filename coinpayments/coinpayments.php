@@ -212,7 +212,7 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 
 				if ($this->checkDataSignature($signature, $content, $request_data['invoice']['status'])) {
 					$status = $request_data['invoice']['status'];
-                    $completed_statuses = array(Coinpayments::PAID_EVENT, Coinpayments::PENDING_EVENT);
+                    $completed_statuses = array(CoinpaymentsApi::PAID_EVENT, CoinpaymentsApi::PENDING_EVENT);
 					if (in_array($status, $completed_statuses)) {
 						$this->modifyOrder($invoice_id, $this->payment_params->verified_status, true, true);
 					} elseif ($status == CoinpaymentsApi::CANCELLED_EVENT) {
