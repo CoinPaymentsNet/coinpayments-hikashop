@@ -6,7 +6,7 @@
 	</span>
 	<br/>
 	<form id="hikashop_coinpayments_form" name="hikashop_coinpayments_form"
-		  action="<?php echo CoinpaymentsApi::API_URL; ?>/<?php echo CoinpaymentsApi::API_CHECKOUT_ACTION; ?>"
+		  action="<?php echo CoinpaymentsApi::CHECKOUT_URL; ?>/<?php echo CoinpaymentsApi::API_CHECKOUT_ACTION; ?>/"
 		  method="get">
 		<div id="hikashop_coinpayments_end_image" class="hikashop_coinpayments_end_image">
 			<input id="hikashop_coinpayments_button" class="btn btn-primary" type="submit"
