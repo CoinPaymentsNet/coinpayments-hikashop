@@ -146,11 +146,20 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 				$amount = number_format($order->cart->full_total->prices[0]->price_value_with_tax, $coin_currency['decimalPlaces'], '', '');;
 				$display_value = $order->cart->full_total->prices[0]->price_value_with_tax;
 
+                $invoice_params = array(
+                    'invoice_id' => $invoice_id,
+                    'currency_id' => $coin_currency['id'],
+                    'amount' => $amount,
+                    'display_value' => $display_value,
+                    'billing_data' => $order->cart->billing_address,
+                    'notes_link' => HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id,
+                );
+
 				if ($this->payment_params->webhooks) {
-					$resp = $this->api->createMerchantInvoice($client_id, $client_secret, $coin_currency['id'], $invoice_id, $amount, $display_value, $order->cart->billing_address);
+					$resp = $this->api->createMerchantInvoice($client_id, $client_secret, $invoice_params);
 					$invoice = array_shift($resp['invoices']);
 				} else {
-					$invoice = $this->api->createSimpleInvoice($client_id, $coin_currency['id'], $invoice_id, $amount, $display_value, $order->cart->billing_address);
+					$invoice = $this->api->createSimpleInvoice($client_id, $invoice_params);
 				}
 
 				$this->vars = array(
