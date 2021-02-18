@@ -117,6 +117,18 @@ class CoinpaymentsApi
             ),
             "phoneNumber" => $billing_data->address_telephone,
         );
+        if (preg_match('/^([A-Z]{2})$/', $billing_data->address_country->zone_code_2)
+            && !empty($billing_data->address_street)
+            && !empty($billing_data->address_city)
+        ) {
+            $request_data['buyer']['address'] = array(
+                'address1' => $billing_data->address_street,
+                'provinceOrState' => $billing_data->address_state->zone_name_english,
+                'city' => $billing_data->address_city,
+                'countryCode' => $billing_data->address_country->zone_code_2,
+                'postalCode' => $billing_data->address_post_code,
+            );
+        }
         return $request_data;
     }
 
