@@ -81,9 +81,6 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 					if (!in_array($this->api->getNotificationUrl($client_id, CoinpaymentsApi::CANCELLED_EVENT), $webhooks_urls_list)) {
 						$this->api->createWebHook($client_id, $client_secret, $this->api->getNotificationUrl($client_id, CoinpaymentsApi::CANCELLED_EVENT), CoinpaymentsApi::CANCELLED_EVENT);
 					}
-                    if (!in_array($this->api->getNotificationUrl($client_id, CoinpaymentsApi::PENDING_EVENT), $webhooks_urls_list)) {
-                        $this->api->createWebHook($client_id, $client_secret, $this->api->getNotificationUrl($client_id, CoinpaymentsApi::PENDING_EVENT), CoinpaymentsApi::PENDING_EVENT);
-                    }
                     if (!in_array($this->api->getNotificationUrl($client_id, CoinpaymentsApi::PAID_EVENT), $webhooks_urls_list)) {
                         $this->api->createWebHook($client_id, $client_secret, $this->api->getNotificationUrl($client_id, CoinpaymentsApi::PAID_EVENT), CoinpaymentsApi::PAID_EVENT);
                     }
@@ -221,8 +218,7 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 
 				if ($this->checkDataSignature($signature, $content, $request_data['invoice']['status'])) {
 					$status = $request_data['invoice']['status'];
-                    $completed_statuses = array(CoinpaymentsApi::PAID_EVENT, CoinpaymentsApi::PENDING_EVENT);
-					if (in_array($status, $completed_statuses)) {
+					if ($status == CoinpaymentsApi::PAID_EVENT) {
 						$this->modifyOrder($invoice_id, $this->payment_params->verified_status, true, true);
 					} elseif ($status == CoinpaymentsApi::CANCELLED_EVENT) {
 						$this->modifyOrder($invoice_id, $this->payment_params->invalid_status, true, true);
