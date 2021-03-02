@@ -225,7 +225,17 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
 		return false;
 	}
 
-	/**
+    public function onPaymentDisplay(&$order, &$methods, &$usable_methods)
+    {
+        parent::onPaymentDisplay($order, $methods, $usable_methods);
+        foreach($methods as $method) {
+            if ($method->payment_name == "CoinPayments")
+                $method->payment_description = 'Pay with Bitcoin, Litecoin, or other altcoins via  <a href="https://alpha.coinpayments.net/" target="_blank" title="CoinPayments.net">CoinPayments.net</a>';
+        }
+        return true;
+    }
+
+    /**
 	 * @param $signature
 	 * @param $content
 	 * @return bool
