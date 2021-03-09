@@ -149,7 +149,11 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
                     'amount' => $amount,
                     'display_value' => $display_value,
                     'billing_data' => $order->cart->billing_address,
-                    'notes_link' => HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id,
+                    'notes_link' => sprintf(
+                        "%s|Store name: %s|Order #%s",
+                        HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id,
+                        JFactory::getApplication()->get('sitename'),
+                        $order->order_id)
                 );
 
 				if ($this->payment_params->webhooks) {
