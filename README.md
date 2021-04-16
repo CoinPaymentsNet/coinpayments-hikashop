@@ -1,11 +1,29 @@
-IMPORTANT NOTE:
+# Coinpayments payment module for Joomla 2.5/3.x and HikaShop
 
-This is only for use with: https://alpha.coinpayments.net/
+## The module installation
 
-NOT for use with https://coinpayments.net
+1. [Download hikashop_coinpayments.zip](https://github.com/CoinPaymentsNet/coinpayments-hikashop/archive/cps_api_v2.zip)
+2. Go to Joomla's administration panel
+3. Go to _Manage_ page via the menu _Extensions_
+4. Install the module package
+  1. Open the page _Install_ and the tab _Upload Package File_
+  2. Select the module package file saved at the step 1.
+  3. Click _Upload & Install_ to install the module
+  4. Go to _Plugins_ via the menu _Extensions_
+  5. Locate the plugin _CoinPayments Payment Plugin_ and enable it
 
-Demonstration Website Disclaimer: The information presented on alpha.coinpayments.net (the "Demo Site") is for demonstration purposes only. All content on the Demo Site is considered “in development” and should be used at your own risk. CoinPayments Inc. assumes no responsibility or liability for any errors or omissions in the content of the Demo Site. The information contained in the Demo Site is provided on an "as is" basis with no guarantees of completeness, accuracy, usefulness or timeliness and without any warranties of any kind whatsoever, express or implied. CoinPayments Inc. does not warrant that the Demo Site and any information or material downloaded from the Demo Site, will be uninterrupted, error-free, omission-free or free of viruses or other harmful items.
+## The module configuration
 
-In no event will CoinPayments Inc. or its directors, officers, employees, shareholders, service providers or agents, be liable to you, or anyone else, for any decision(s) made or action(s) taken in reliance upon the information contained in the Demo Site, nor for any direct, indirect, incidental, special, exemplary, punitive, consequential, or other damages whatsoever (including, but not limited to, liability for loss of use, funds, data or profits) whether in an action of contract, statute, tort or otherwise, relating to the use of the Demo Site."
-
-# coinpayments-hikashop
+1. Go to Joomla's administration panel
+2. Go to HikaShop's administration panel via _Components_ -> _HikaShop_ -> _Configuration_
+3. Go to the menu _System_ -> _Payment methods_
+4. Click the button _New_ and select _CoinPayments Payment Plugin_
+5. Configure the module
+  1. Setup the payment method name
+  2. Locate the block _Specific configuration_
+  3. Enter the Coinpayments.Net Client ID
+  4. Enable webhooks and enter  Client Secret to use Coinpayments.net webhook notifications.
+  5. Click _Save & Close_
+6. Publish the payment method
+  1. Select the configured payment method in the list of payment methods
+  2. Publish it by clicking an icon in the column _Published_
