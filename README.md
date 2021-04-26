@@ -27,12 +27,3 @@
 6. Publish the payment method
   1. Select the configured payment method in the list of payment methods
   2. Publish it by clicking an icon in the column _Published_
-
-# Follow the steps below to download this plugin:
-  
-1. Log into your https://alpha.coinpayments.net/ account
-2. Click on Business Tools -> Intergrations -> Pre-built Plugins -> + add Intergration button
-3. Select this plug-in from the dropdown menu
-4. Click the download plugin button  
-   
-![Screenshot 2021-04-26 042435](https://user-images.githubusercontent.com/72504315/116075088-61491380-a647-11eb-8a65-751f4323ec7a.png)
