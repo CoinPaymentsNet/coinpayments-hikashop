@@ -66,7 +66,7 @@ class CoinpaymentsApi
             "notesToRecipient" => $invoice_params['notes_link']
 		);
 
-        $params = $this->append_billing_data($params, $invoice_params['billing_data']);
+        $params = $this->append_billing_data($params, $invoice_params['billing_data'], $invoice_params['email']);
 		$params = $this->appendInvoiceMetadata($params);
 		return $this->sendRequest('POST', $action, $client_id, $params);
 	}
@@ -93,7 +93,7 @@ class CoinpaymentsApi
             "notesToRecipient" => $invoice_params['notes_link']
 		);
 
-        $params = $this->append_billing_data($params, $invoice_params['billing_data']);
+        $params = $this->append_billing_data($params, $invoice_params['billing_data'], $invoice_params['email']);
 		$params = $this->appendInvoiceMetadata($params);
 		return $this->sendRequest('POST', $action, $client_id, $params, $client_secret);
 	}
@@ -101,9 +101,10 @@ class CoinpaymentsApi
     /**
      * @param $request_data
      * @param $billing_data
+     * @param $email
      * @return array
      */
-    function append_billing_data($request_data, $billing_data)
+    function append_billing_data($request_data, $billing_data, $email)
     {
         $request_data['buyer'] = array(
             "name" => array(
@@ -111,6 +112,7 @@ class CoinpaymentsApi
                 "lastName" => $billing_data->address_lastname
             ),
             "phoneNumber" => $billing_data->address_telephone,
+            "emailAddress" => $email
         );
         if (preg_match('/^([A-Z]{2})$/', $billing_data->address_country->zone_code_2)
             && !empty($billing_data->address_street)
