@@ -154,7 +154,7 @@ class plgHikashoppaymentCoinpayments extends hikashopPaymentPlugin
                         "%s|Store name: %s|Order #%s",
                         HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id,
                         JFactory::getApplication()->get('sitename'),
-                        $order->order_id)
+                        $order->order_number)
                 );
 
                 if ($this->payment_params->webhooks) {
