@@ -1,3 +1,5 @@
+> NOTICE: Migrated to [CoinPaymentsNet/plugin-hikashop](https://github.com/CoinPaymentsNet/plugin-hikashop).
+
 IMPORTANT NOTE:
 
 This is only for use with: https://alpha.coinpayments.net/
